@@ -1,0 +1,549 @@
+
+
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+  color: white;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 50px;
+}
+
+.nav-btn {
+  background-color: #00ffd5;
+  border: none;
+  padding: 10px 15px;
+  margin-left: 15px;
+  color: #000;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #6a00ff;
+  color: white;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 20px;
+  text-align: left;
+  transform: translateX(50px);
+}
+
+.hero-img-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+}
+
+.hero-img-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+  background-image: linear-gradient(45deg, #00ffd5, #6a00ff);
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 2;
+  border: 4px solid white;
+}
+
+.hero-text {
+  max-width: 400px;
+  margin: 20px;
+}
+
+.hero-text h1 {
+  font-size: 36px;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.hero-text h2 {
+  font-size: 20px;
+  color: #00ffd5;
+}
+
+.buttons button {
+  background-color: #00ffd5;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #6a00ff;
+  color: white;
+}
+
+.about-me {
+  max-width: 600px;
+  color: white;
+  padding-top: 20px;
+  line-height:2;
+}
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 20px;
+}
+
+.projects {
+    text-align: center;
+    padding: 80px 20px;
+    top: 10;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px; /* You can increase or decrease this */
+     /* optional, space between heading and boxes */
+}
+
+.project-box {
+    width: 300px;
+    min-height: 350px;
+    background: linear-gradient(45deg, #00ffd5, #6a00ff);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s ease;
+}
+.project-box img {
+    width: 100%;
+    height: 180px; /* Set a max height */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.project-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    transform: skewX(-20deg);
+    z-index: 1;
+    transition: none;
+}
+
+.project-box:hover::before {
+    animation: shine 0.8s ease-in-out;
+}
+
+.project-box:hover *{
+  color:pink
+  position  relative;
+  z-index: 2;
+}
+
+@keyframes shine {
+    0% {
+        left: -75%;
+    }
+    100% {
+        left: 125%;
+    }
+}
+
+.project-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.project-description {
+    margin-top: 10px;
+}
+
+.project-description h3 {
+    color: white;
+    font-size: 22px;
+    text-align: left;
+}
+
+.project-description p {
+    font-size: 16px;
+    color: #e0e0e0; /* lighter gray for better readability */
+    line-height: 1.4;
+    text-align: left;
+}
+
+.project-box button {
+    background-color: #00ffd5;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+     margin-top: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.project-box button:hover {
+    background-color: #6a00ff;
+    color: white;
+}
+project-box button:focus {
+    outline: 3px solid #6a00ff;
+    outline-offset: 2px;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 768px) {
+    .projects-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .project-box {
+        width: 90%;
+        min-height: auto; /* allow height to adjust naturally on small screens */
+        transform: none !important;
+    }
+}
+
+.projects {
+    text-align: center;
+    padding: 40px 20px 80px 20px;
+    background: linear-gradient(to right, #1e3c72, #2a5298); /* example blue gradient */
+}
+.skills {
+  text-align: center;
+  padding: 80px 20px;
+  background: #09203F → #537895
+
+
+}
+
+.skills h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: rgb(116, 167, 7);
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 80px;
+}
+
+.skill-box {
+  width: 200px;
+  height: 200px;
+  background: #151594;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  border: 2px solid transparent;
+}
+
+.skill-box img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.skill-box p {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+}
+
+/* 🔥 Hover effect */
+.skill-box:hover {
+  transform: scale(1.1);
+  border: 2px solid #00ffd5;
+  box-shadow: 0 0 20px #00ffd5, 0 0 40px #6a00ff;
+}
+.internships {
+  text-align: center;
+  padding: 80px 20px;
+  background:  linear-gradient(to right, #051f4f, #0b2758); ;
+  color: white;
+}
+
+.internships h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #00ffd5;
+}
+
+.internship-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 80px;
+}
+
+.internship-circle {
+  width: 200px;
+  height: 200px;
+  background: #600844;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid transparent;
+}
+
+.internship-circle span {
+  line-height: 1.4;
+  padding: 10px;
+}
+
+.internship-circle:hover {
+  transform: scale(1.15) rotate(3deg);
+  background: linear-gradient(135deg, #00ffd5, #6a00ff);
+  color: #000;
+  border: 2px solid #fff;
+  box-shadow: 0 0 20px #00ffd5, 0 0 40px #6a00ff;
+}
+.view-btn {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  background-color: #00bcd4; /* cyan/teal color */
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-btn:hover {
+  background-color: #6a00ff; /* vibrant purple on hover */
+  transform: scale(1.1);
+}
+.certificates {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(to right, #574737 → #552803);
+  color: white;
+}
+
+.certificates h2 {
+  font-size: 32px;
+  color: #00ffd5;
+  margin-bottom: 40px;
+  align-items: center;
+}
+
+.certificate-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+}
+
+.certificate-box {
+  background: #420965;
+  border-radius: 15px;
+  padding: 25px 20px;
+  width: 250px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+   height: 220px;
+}
+
+.certificate-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ffd5, 0 0 30px #6a00ff;
+}
+
+.certificate-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.view-btn {
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  background-color: #00bcd4; /* Teal color */
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-btn:hover {
+  background-color: #6a00ff;
+  transform: scale(1.1);
+}
+.contact {
+  margin-top: 0px;
+  background: #1e2a38;
+  color: white;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-container {
+  background: white;
+  color: #1e2a38;
+  border-radius: 10px;
+  display: flex;
+  padding: 40px;
+  width: 80%;
+  max-width: 1000px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+}
+
+.contact-form, .contact-info {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.contact-form h2 {
+  margin-bottom: 20px;
+  color: #1f1f2e;
+}
+
+.contact-form form label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background: #00d2b5;
+  padding: 8px;
+  border-radius: 30px;
+}
+
+.contact-form form label i {
+  margin-right: 10px;
+  color: white;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 30px;
+  font-size: 14px;
+}
+
+.contact-form textarea {
+  border-radius: 10px;
+  resize: none;
+  margin-top: 10px;
+}
+
+.contact-form button {
+  background-color: #00d2b5;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #009e8c;
+}
+
+.contact-info h3 {
+  margin-top: 20px;
+  color: #00d2b5;
+}
+
+.contact-info p {
+  margin: 5px 0 15px;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 0px;
+  margin-left: 250px;
+}
+
+.circle {
+  background-color: #00e5ff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+  font-size: 24px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.circle:hover {
+  background-color: #0dcaf0;
+  transform: scale(1.1);
+}
